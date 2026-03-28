@@ -1,0 +1,111 @@
+:root { 
+  --neon: #5eead4; 
+  --border: rgba(255,255,255,0.1); 
+  /* Category Colors */
+  --food: #ff6b6b;
+  --transport: #4facfe;
+  --bills: #f39c12;
+  --shopping: #a18cd1;
+  --others: #5eead4;
+}
+
+body { background: #05070a; color: white; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+
+/* 1. EXTENDED LENGTH BOX */
+.glass-card {
+  width: 1150px; 
+  min-height: 750px; /* Increased length from default to 750px */
+  background: #0b0e14;
+  border-radius: 45px;
+  border: 1px solid var(--border);
+  padding: 50px;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.vault-layout { 
+  display: grid; 
+  grid-template-columns: 260px 1fr; 
+  gap: 45px; 
+  height: 100%; 
+}
+
+/* Sidebar stretches to full length */
+.sidebar { 
+  border-right: 1px solid var(--border); 
+  padding-right: 35px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 40px; 
+  height: 100%; 
+}
+
+.brand { font-weight: 800; font-size: 1.5rem; letter-spacing: 2px; }
+.brand span { color: var(--others); text-shadow: 0 0 10px var(--others); }
+.chart-box { width: 180px; position: relative; }
+.chart-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.burn-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; width: 100%; }
+.burn-val { color: var(--others); font-weight: 800; font-size: 1.1rem; }
+
+.stats-header { display: flex; gap: 12px; margin-bottom: 30px; }
+.pill { background: rgba(255,255,255,0.02); padding: 10px 20px; border-radius: 12px; border: 1px solid var(--border); font-size: 0.85rem; }
+.pill span { color: var(--others); font-weight: 800; margin-left: 8px; }
+
+/* Inputs Visualized (White Text) */
+.input-row { display: flex; gap: 12px; align-items: center; margin-bottom: 25px; width: 100%; flex-wrap: nowrap; }
+.input-row input, .input-row select, .filter-row input, .filter-row select {
+  background: #161b22; border: 1px solid var(--border);
+  color: white !important; padding: 14px; border-radius: 14px; outline: none; flex: 1; min-width: 0;
+}
+select option { background: #0b0e14; color: white; }
+
+.prime-btn {
+  width: 55px; height: 50px; background: var(--others); color: #000;
+  border: none; border-radius: 14px; font-size: 1.6rem; font-weight: 900;
+  cursor: pointer; display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 0 15px rgba(94, 234, 212, 0.4); flex-shrink: 0;
+}
+
+.filter-row { display: flex; gap: 12px; margin-bottom: 25px; }
+.orange-select { border-color: orange !important; color: white !important; font-weight: 700; }
+
+/* 2. EXTENDED LIST AREA */
+.scroll-list { 
+  max-height: 480px; /* Increased from 320px to show more transactions */
+  overflow-y: auto; 
+  padding-right: 10px; 
+}
+
+/* CATEGORY COLORS & BORDERS */
+.item-row { 
+  display: flex; justify-content: space-between; align-items: center; 
+  padding: 18px 25px; background: rgba(255,255,255,0.02); 
+  border-radius: 18px; margin-bottom: 12px; transition: 0.3s;
+  border-left: 5px solid var(--others);
+}
+
+.item-row.cat-food { border-left-color: var(--food); background: rgba(255, 107, 107, 0.03); }
+.item-row.cat-food .price-tag { color: var(--food); }
+
+.item-row.cat-transport { border-left-color: var(--transport); background: rgba(79, 172, 254, 0.03); }
+.item-row.cat-transport .price-tag { color: var(--transport); }
+
+.item-row.cat-bills { border-left-color: var(--bills); background: rgba(243, 156, 18, 0.03); }
+.item-row.cat-bills .price-tag { color: var(--bills); }
+
+.item-row.cat-shopping { border-left-color: var(--shopping); background: rgba(161, 140, 209, 0.03); }
+.item-row.cat-shopping .price-tag { color: var(--shopping); }
+
+.item-row.cat-others { border-left-color: var(--others); background: rgba(94, 234, 212, 0.03); }
+.item-row.cat-others .price-tag { color: var(--others); }
+
+.item-row:hover { background: rgba(255,255,255,0.06); transform: translateX(8px); }
+.act { display: flex; gap: 20px; align-items: center; }
+.act button { background: none; border: none; color: white; opacity: 0.3; cursor: pointer; font-size: 1.2rem; }
+.act button:hover { opacity: 1; color: var(--others); }
+
+/* Premium Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
